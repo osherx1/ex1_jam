@@ -1,8 +1,7 @@
 ﻿using System.Collections;
 using Managers;
 using UnityEngine;
-
-namespace GameManagers
+namespace Sounds
 {
     /// <summary>
     /// Manages sound effects and background music for the game.
@@ -14,7 +13,7 @@ namespace GameManagers
         /// Reference to the ScriptableObject containing all audio clips.
         /// </summary>
         [SerializeField]
-        private Data.GameSoundsSo _gameSoundsSO;
+        private Data.GameSoundsSo gameSoundsSo;
 
         /// <summary>
         /// Audio source for playing short sound effects.
@@ -32,14 +31,14 @@ namespace GameManagers
         /// Whether to automatically start background music on Awake.
         /// </summary>
         [SerializeField]
-        private bool _startwithBackgroundMusic;
+        private bool startWithBackgroundMusic;
 
         /// <summary>
         /// Called when the object is initialized. Plays background music if enabled.
         /// </summary>
         void Awake()
         {
-            if (_startwithBackgroundMusic)
+            if (startWithBackgroundMusic)
             {
                 PlayBackgroundMusic();
             }
@@ -63,7 +62,7 @@ namespace GameManagers
         /// <param name="audioType">The type of sound to play.</param>
         public void PlaySoundByAudioType(Data.GameSoundsSo.AudioType audioType)
         {
-            AudioClip clip = _gameSoundsSO.GetClip(audioType);
+            AudioClip clip = gameSoundsSo.GetClip(audioType);
             if (clip != null)
             {
                 audioSource.PlayOneShot(clip);
