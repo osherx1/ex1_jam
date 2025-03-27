@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using Managers;
 using UnityEngine;
-namespace Sounds
+
+namespace Managers
 {
     /// <summary>
     /// Manages sound effects and background music for the game.
